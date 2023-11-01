@@ -99,8 +99,16 @@ choices.forEach((choice) => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
-        console.log(selectedAnswer, currentQuestion.answer);
-        getNewQuestions();
+        let classToApply = 'incorrect';
+        if (selectedAnswer == currentQuestion.answer) {
+            classToApply = 'correct';
+        }
+
+        selectedChoice.parentElement.classList.add(classToApply);
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestions();
+        }, 1000);
     });
 });
 startGame();

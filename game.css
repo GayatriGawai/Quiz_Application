@@ -22,3 +22,10 @@
     padding: 1.5rem;
     width: 100%;
 }
+
+.correct{
+    background-color: rgb(26, 228, 26);
+}
+.incorrect{
+    background-color: #dc3545;
+}
