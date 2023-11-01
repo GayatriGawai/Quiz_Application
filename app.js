@@ -106,7 +106,7 @@ choices.forEach((choice) => {
 
         selectedChoice.parentElement.classList.add(classToApply);
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply);
+            alert('You are anwser is ' + classToApply);
             getNewQuestions();
         }, 1000);
     });
