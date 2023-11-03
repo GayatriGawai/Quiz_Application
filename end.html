@@ -5,15 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>End of the Quiz</title>
         <style>
-            p {
+            p,
+            h1 {
                 text-align: center;
-                margin: 25% 25% 25% 25%;
                 color: rgb(53, 53, 253);
+                /* margin-top: 50%;
+                margin-bottom: 50%; */
                 font-size: large;
+            }
+            div {
+                margin: 25% 25% 25% 25%;
             }
         </style>
     </head>
     <body>
-        <p><b>Thank you for attending the Quiz!!</b></p>
+        <div class="container">
+            <div id="end" class="felx-center flex-column">
+                <p>
+                    <b
+                        >Thank you for attending the Quiz!! <br />Your score
+                        is:</b
+                    >
+                </p>
+
+                <h1 id="finalScore">0</h1>
+            </div>
+        </div>
+        <script src="end.js"></script>
     </body>
 </html>

@@ -105,6 +105,8 @@ startGame = () => {
 };
 getNewQuestions = () => {
     if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('recentScore', score);
+
         return window.location.assign('/end.html');
     }
 
@@ -112,7 +114,7 @@ getNewQuestions = () => {
     progressText.innerText =
         'Question ' + questionCounter + '/' + MAX_QUESTIONS;
 
-    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`; //You used '' that's why it was not working always use `` for the expression
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`; //You used '' that's why it wasn't working always use `` for the expression
 
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
