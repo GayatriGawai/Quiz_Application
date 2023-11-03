@@ -142,10 +142,8 @@ choices.forEach((choice) => {
             incrementScore(CORRECT_BONUS);
         }
         selectedChoice.parentElement.classList.add(classToApply);
-        setTimeout(() => {
-            alert('You are anwser is ' + classToApply);
-            getNewQuestions();
-        }, 30);
+        alert('You are anwser is ' + classToApply);
+        getNewQuestions();
     });
 });
 incrementScore = (num) => {
