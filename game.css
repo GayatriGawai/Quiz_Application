@@ -29,3 +29,30 @@
 .incorrect{
     background-color: #dc3545;
 } */
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
+.hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+}
+.hud-main-text{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5rem;
+}
+
+#progressBar{
+    width: 100%;
+    height: 25px;
+    border: 0.1px solid #56a5eb;
+    margin-top: 5rem;
+}
+
+#progressBarFull{
+    height: 25px;
+    background-color: #56a5eb;
+    width:0%;
+}

@@ -1,5 +1,8 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const progressText = document.getElementById('progressText');
+const scoreText = document.getElementById('score');
+const progressBarFull = document.getElementById('progressBarFull');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -66,9 +69,34 @@ let questions = [
         choice4: 'Opposite',
         answer: 1,
     },
+    {
+        question: 'What does the HTML stands for?',
+        choice1: 'Hyperlink and Text Markup Language',
+        choice2: 'Hyper Text Markup Language',
+        choice3: 'High-Level Text Markup Language',
+        choice4: 'Hyper Transfer Markup Language',
+        answer: 2,
+    },
+    {
+        question: 'Which company developed the Python programming language?',
+        choice1: 'Google',
+        choice2: 'Microsoft',
+        choice3: 'Facebook',
+        choice4: 'Python Software Foundation',
+        answer: 4,
+    },
+    {
+        question:
+            'What is the most widely used programming language for web development?',
+        choice1: 'Python',
+        choice2: 'Java',
+        choice3: 'C++',
+        choice4: 'JavaScript',
+        answer: 4,
+    },
 ];
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 7;
+const CORRECT_BONUS = 1;
+const MAX_QUESTIONS = 10;
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -81,6 +109,11 @@ getNewQuestions = () => {
     }
 
     questionCounter++;
+    progressText.innerText =
+        'Question ' + questionCounter + '/' + MAX_QUESTIONS;
+
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`; //You used '' that's why it was not working always use `` for the expression
+
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -103,12 +136,18 @@ choices.forEach((choice) => {
         if (selectedAnswer == currentQuestion.answer) {
             classToApply = 'correct';
         }
-
+        if (classToApply === 'correct') {
+            incrementScore(CORRECT_BONUS);
+        }
         selectedChoice.parentElement.classList.add(classToApply);
         setTimeout(() => {
             alert('You are anwser is ' + classToApply);
             getNewQuestions();
-        }, 1000);
+        }, 30);
     });
 });
+incrementScore = (num) => {
+    score += num;
+    scoreText.innerHTML = score;
+};
 startGame();
