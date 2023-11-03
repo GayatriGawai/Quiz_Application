@@ -4,17 +4,46 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>End of the Quiz</title>
+        <!-- <link rel="stylesheet" href="/app.css" /> -->
         <style>
+            :root {
+                background-color: #ecf5ff;
+            }
             p,
             h1 {
                 text-align: center;
-                color: rgb(53, 53, 253);
-                /* margin-top: 50%;
-                margin-bottom: 50%; */
+                color: #56a5eb;
                 font-size: large;
             }
             div {
                 margin: 25% 25% 25% 25%;
+            }
+            .btn {
+                font-size: large;
+                padding: 1rem 0;
+                width: 100%;
+                text-align: center;
+                display: block;
+                border: 0.1rem solid #56a5eb;
+                margin-bottom: 1rem;
+                text-decoration: none;
+                color: #56a5eb;
+                background-color: white;
+            }
+
+            .btn:hover {
+                cursor: pointer;
+                box-shadow: 0 0.4rem 1.4rem 0 rgba(233, 0, 0, 0.5);
+                transform: translateY(-0.5rem);
+                transition: transform 150ms ease-in-out;
+                background-color: rgb(226, 41, 41);
+                color: white;
+                border: 0.1rem dotted #ee0909;
+            }
+            .btn[disabled]:hover {
+                cursor: not-allowed;
+                box-shadow: none;
+                transform: none;
             }
         </style>
     </head>
@@ -29,6 +58,7 @@
                 </p>
 
                 <h1 id="finalScore">0</h1>
+                <a href="/exit.html" class="btn">Exit</a>
             </div>
         </div>
         <script src="end.js"></script>
