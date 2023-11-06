@@ -21,9 +21,11 @@ fetch('questions.json')
         questions = loadedQuestions;
         startGame();
     });
+
 const CORRECT_BONUS = 1;
 const MAX_QUESTIONS = 10;
-console.log('Stored MAX_QUESTIONS:', MAX_QUESTIONS);
+localStorage.setItem('maxQuestion', `${MAX_QUESTIONS}`); //to set the local storage for max question number
+
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -74,6 +76,6 @@ choices.forEach((choice) => {
 });
 incrementScore = (num) => {
     score += num;
-    scoreText.innerHTML = score;
+    scoreText.innerHTML = `${score} / ${MAX_QUESTIONS}`;
 };
 // startGame();
