@@ -24,6 +24,7 @@ fetch('questions.json')
 
 const CORRECT_BONUS = 1;
 const MAX_QUESTIONS = 10;
+
 localStorage.setItem('maxQuestion', `${MAX_QUESTIONS}`); //to set the local storage for max question number
 
 startGame = () => {
@@ -49,7 +50,7 @@ getNewQuestions = () => {
     question.innerText = currentQuestion.question;
 
     choices.forEach((choice) => {
-        const number = choice.dataset['number']; // study more on this
+        const number = choice.dataset['number']; // study more on this. The dataset is a property of HTML elements in JavaScript that provides access to data attributes (data-*) set on the element.
         choice.innerText = currentQuestion['choice' + number];
     });
     availableQuestions.splice(questionIndex, 1); // study more on this. Alternative you can use filter if you don't know the index number
