@@ -35,29 +35,36 @@ startGame = () => {
     availableQuestions = [...questions];
     getNewQuestions();
 };
-getNewQuestions = () => {
+getNewQuestions = (isPrevious = false) => {
     if (!availableQuestions.length || questionCounter >= MAX_QUESTIONS) {
-        myWindow;
         localStorage.setItem('recentScore', score);
-        var myWindow = window.open('/end.html', '_self');
+        return window.location.assign('/end.html');
+    }
+    if (isPrevious) {
+        // for previous question
+        questionCounter--;
+    } else {
+        // for next question
+        questionCounter++;
     }
 
-    questionCounter++;
-
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-
-    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`; //You used '' that's why it wasn't working always use `` for the expression
-
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex];
+    // const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = questions[questionCounter - 1];
     question.innerText = currentQuestion.question;
 
     choices.forEach((choice) => {
         const number = choice.dataset['number']; // study more on this:-  The dataset is a property of HTML elements in JavaScript that provides access to data attributes (data-*) set on the element.
         choice.innerText = currentQuestion['choice' + number];
     });
-    availableQuestions.splice(questionIndex, 1); // study more on this. Alternative you can use filter if you don't know the index number
+    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`; //You used '' that's why it wasn't working always use `` for the expression
+    availableQuestions = availableQuestions.filter(
+        (question, index) => index !== questionCounter
+    );
+
+    //availableQuestions.splice(questionIndex, 1); // study more on this. Alternative you can use filter if you don't know the index number
     // acceptingAnswers = true;
+    // availableQuestions = [...questions];
 };
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
@@ -84,12 +91,14 @@ incrementScore = (num) => {
 };
 previousButton.addEventListener('click', () => {
     if (questionCounter > 1) {
-        questionCounter -= 2; // Go back two steps to account for the upcoming increment in getNewQuestions()
-        getNewQuestions();
+        console.log('Clicked'); //to check whether it is clicked
+        // questionCounter--; // To decrease the count of the question so it will go to the previous question
+        console.log('questionCounter:', questionCounter); //to check the count
+        getNewQuestions(true);
     }
 });
 
 nextButton.addEventListener('click', () => {
     getNewQuestions();
+    console.log('questionCounter:', questionCounter);
 });
-// startGame();

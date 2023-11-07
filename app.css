@@ -66,13 +66,11 @@ h3{
     display: none;
 }
 
-.btn{
+.btn, .btn3{
     font-size: 1.8rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    /* align-items: center;
-    justify-content: center; */
     display: block;
     border: 0.1rem solid #56a5eb;
     margin-bottom: 1rem;
@@ -80,8 +78,12 @@ h3{
     color: #56a5eb;
     background-color: white;
 }
+button#nextButton{
+    /* margin-left: 357px; */
+    display: inline; 
+}
 
-.btn:hover{
+.btn:hover, .btn3:hover{
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.5rem);

@@ -1,18 +1,18 @@
 [
     {
-        "question": "What is the capital of France?",
-        "choice1": "Berlin",
-        "choice2": "Madrid",
-        "choice3": "Paris",
-        "choice4": "Rome",
-        "answer": "3"
-    },
-    {
         "question": "Which planet is known as the Red Planet??",
         "choice1": "Venus",
         "choice2": "Jupiter",
         "choice3": "Mars",
         "choice4": "Saturn",
+        "answer": "3"
+    },
+    {
+        "question": "What is the capital of France?",
+        "choice1": "Berlin",
+        "choice2": "Madrid",
+        "choice3": "Paris",
+        "choice4": "Rome",
         "answer": "3"
     },
     {
