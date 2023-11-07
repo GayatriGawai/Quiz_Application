@@ -3,6 +3,8 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const progressText = document.getElementById('progressText');
 const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
+const previousButton = document.getElementById('previousButton');
+const nextButton = document.getElementById('nextButton');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -35,8 +37,9 @@ startGame = () => {
 };
 getNewQuestions = () => {
     if (!availableQuestions.length || questionCounter >= MAX_QUESTIONS) {
+        myWindow;
         localStorage.setItem('recentScore', score);
-        return window.location.assign('/end.html');
+        var myWindow = window.open('/end.html', '_self');
     }
 
     questionCounter++;
@@ -50,7 +53,7 @@ getNewQuestions = () => {
     question.innerText = currentQuestion.question;
 
     choices.forEach((choice) => {
-        const number = choice.dataset['number']; // study more on this. The dataset is a property of HTML elements in JavaScript that provides access to data attributes (data-*) set on the element.
+        const number = choice.dataset['number']; // study more on this:-  The dataset is a property of HTML elements in JavaScript that provides access to data attributes (data-*) set on the element.
         choice.innerText = currentQuestion['choice' + number];
     });
     availableQuestions.splice(questionIndex, 1); // study more on this. Alternative you can use filter if you don't know the index number
@@ -79,4 +82,14 @@ incrementScore = (num) => {
     score += num;
     scoreText.innerHTML = `${score} / ${MAX_QUESTIONS}`;
 };
+previousButton.addEventListener('click', () => {
+    if (questionCounter > 1) {
+        questionCounter -= 2; // Go back two steps to account for the upcoming increment in getNewQuestions()
+        getNewQuestions();
+    }
+});
+
+nextButton.addEventListener('click', () => {
+    getNewQuestions();
+});
 // startGame();

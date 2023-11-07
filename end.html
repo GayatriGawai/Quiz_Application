@@ -18,7 +18,8 @@
             div {
                 margin: 25% 25% 25% 25%;
             }
-            .btn {
+            .btn1,
+            .btn2 {
                 font-size: large;
                 padding: 1rem 0;
                 width: 100%;
@@ -26,12 +27,13 @@
                 display: block;
                 border: 0.1rem solid #56a5eb;
                 margin-bottom: 1rem;
+                margin-right: 1rem;
                 text-decoration: none;
                 color: #56a5eb;
                 background-color: white;
             }
 
-            .btn:hover {
+            .btn1:hover {
                 cursor: pointer;
                 box-shadow: 0 0.4rem 1.4rem 0 rgba(233, 0, 0, 0.5);
                 transform: translateY(-0.5rem);
@@ -40,7 +42,16 @@
                 color: white;
                 border: 0.1rem dotted #ee0909;
             }
-            .btn[disabled]:hover {
+            .btn2:hover {
+                cursor: pointer;
+                box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+                transform: translateY(-0.5rem);
+                transition: transform 150ms ease-in-out;
+                background-color: #56a5eb;
+                color: white;
+            }
+            .btn1,
+            .btn2[disabled]:hover {
                 cursor: not-allowed;
                 box-shadow: none;
                 transform: none;
@@ -58,7 +69,8 @@
                 </p>
 
                 <h1 id="finalScore">0</h1>
-                <a href="/exit.html" class="btn">Exit</a>
+                <a href="" class="btn1" onclick="myWindow.close()">Exit</a>
+                <a href="/game.html" class="btn2">Play Again</a>
             </div>
         </div>
         <script src="end.js"></script>

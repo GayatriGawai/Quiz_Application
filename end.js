@@ -25,5 +25,5 @@ if (percentageScore >= 90) {
 
 // Display the grade
 const gradeText = document.createElement('p');
-gradeText.textContent = `Grade: ${grade}`;
+gradeText.textContent = `${grade}`;
 finalScore.appendChild(gradeText);
