@@ -38,7 +38,9 @@ startGame = () => {
 getNewQuestions = (isPrevious = false) => {
     if (!availableQuestions.length || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('recentScore', score);
-        return window.location.assign('/end.html');
+        //return window.location.assign('/end.html');
+        //******It was redirecting the previous button to the end page on the tenth question******
+        //+++++++++++shifted this line to nextButton++++++++++++++
     }
     if (isPrevious) {
         // for previous question
@@ -89,16 +91,22 @@ incrementScore = (num) => {
     score += num;
     scoreText.innerHTML = `${score} / ${MAX_QUESTIONS}`;
 };
+
 previousButton.addEventListener('click', () => {
     if (questionCounter > 1) {
         console.log('Clicked'); //to check whether it is clicked
         // questionCounter--; // To decrease the count of the question so it will go to the previous question
         console.log('questionCounter:', questionCounter); //to check the count
         getNewQuestions(true);
+    } else {
+        window.location.assign('/index.html');
     }
 });
 
 nextButton.addEventListener('click', () => {
-    getNewQuestions();
     console.log('questionCounter:', questionCounter);
+    if (questionCounter == MAX_QUESTIONS) {
+        window.location.assign('/end.html');
+    }
+    getNewQuestions();
 });

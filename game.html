@@ -10,6 +10,12 @@
     <body>
         <div class="container">
             <div id="game" class="justify-center flex-column">
+                <div class="button-container">
+                    <button class="btnBack" id="previousButton">
+                        Previous
+                    </button>
+                    <button class="btnNext" id="nextButton">Next</button>
+                </div>
                 <div id="hud">
                     <div id="hud-item">
                         <p id="progressText" class="hud-prefix">Question</p>
@@ -36,10 +42,6 @@
                     <p class="choice-text" data-number="4">Choice D</p>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <button class="btn" id="previousButton">Back</button>
-            <button class="btn" id="nextButton">Next</button>
         </div>
         <script src="app.js"></script>
     </body>
