@@ -120,7 +120,7 @@ incrementScore = (num) => {
 //     scoreText.innerHTML = `${score} / ${MAX_QUESTIONS}`;
 // };
 previousButton.addEventListener('click', () => {
-    if (questionCounter > 0) {
+    if (questionCounter > 1) {
         console.log('Clicked'); //to check whether it is clicked
         console.log('questionCounter:', questionCounter); //to check the count
         getNewQuestions(true);
