@@ -1,8 +1,9 @@
 const finalScore = document.getElementById('finalScore');
-const recentScore = localStorage.getItem('recentScore');
-const MAX_QUESTIONS = localStorage.getItem('maxQuestion');
+const recentScore = parseInt(localStorage.getItem('recentScore'), 10);
+const MAX_QUESTIONS = parseInt(localStorage.getItem('maxQuestion'), 10);
 
-//console.log('Stored MAX_QUESTIONS:', MAX_QUESTIONS);
+// Display the recent score
+console.log('Recent Score:', recentScore);
 
 finalScore.innerHTML = `${recentScore}/${MAX_QUESTIONS} <br>(${(
     (recentScore / MAX_QUESTIONS) *
